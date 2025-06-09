@@ -1,0 +1,11 @@
+.main-wrapper {
+    display: grid;
+    place-items: center;
+    margin-top: 10px;
+}
+
+form {
+    display: grid;
+    row-gap: 5px;
+    padding: 1rem;
+}
