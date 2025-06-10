@@ -40,7 +40,7 @@
     "save-dev": "^0.0.1-security"
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
+    "./src/*.js": "eslint --cache --fix",
+    "./src/*.{js,css,md}": "prettier --write"
   }
 }
