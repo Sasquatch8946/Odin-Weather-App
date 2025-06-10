@@ -12,8 +12,10 @@ const displayController = (function () {
     }
 
     const activateSubmit = function () {
-        document.querySelector('form').addEventListener('submit', startSearch);
-        document.querySelector("input[type='text']").addEventListener("keydown", startSearch);
+        const form = document.querySelector('form')
+        form.addEventListener('submit', startSearch);
+        const searchBar = document.querySelector("input[type='text']")
+        searchBar.addEventListener("keydown", startSearch);
     }
 
     const insertGIF = function (_msg, url) {

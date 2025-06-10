@@ -11,7 +11,7 @@
     "ghpages-push": "git subtree push --prefix dist origin gh-pages",
     "ghpages-push-force": "git push origin `git subtree split --prefix dist main`:gh-pages --force",
     "ghpages-finish": "git checkout main",
-    "ghpages": "npm run build && npm run ghpages-create && npm run ghpages-commit && npm run ghpages-push && npm run ghpages-finish"
+    "ghpages": "npm run build && npm run ghpages-create && npm run ghpages-commit && npm run ghpages-push-force && npm run ghpages-finish"
   },
   "keywords": [],
   "author": "",
