@@ -9,3 +9,17 @@ form {
     row-gap: 5px;
     padding: 1rem;
 }
+
+.weather-data {
+    display: grid;
+    width: 300px;
+}
+
+.weather-data img { 
+    width: 100%;
+}
+
+.weather-data .title {
+    font-size: 2rem;
+    justify-self: center;
+}

@@ -16,6 +16,13 @@ const displayController = (function () {
         document.querySelector("input[type='text']").addEventListener("keydown", startSearch);
     }
 
+    const insertGIF = function (_msg, url) {
+        const img = document.querySelector(".weather-data img");
+        img.src = url;
+    }
+
+    PubSub.subscribe("gotGIF", insertGIF);
+
 
     return {
         activateSubmit,
