@@ -6,6 +6,6 @@
  module.exports = merge(common, {
 
    mode: 'production',
-   devTool: 'eval-source-map',
+   devtool: 'eval-source-map',
 
  });
