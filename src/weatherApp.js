@@ -27,6 +27,7 @@ const weatherApp = (function() {
             humidity: currentConditions.humidity, 
             precipprob: currentConditions.precipprob,
             location: data.address,
+            icon: currentConditions.icon,
         };
     }
 
@@ -62,12 +63,13 @@ const weatherApp = (function() {
     }
 
     const getWeather = async function (_msg, location) {
-        const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${API_KEY}`
+        const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=${API_KEY}&lang=en`
         const response = await fetch(url, {mode: 'cors'});
         if (response.ok) {
             const data = await response.json();
+            console.log(data);
             const parsedData = parseData(data);
-            catchErrors(getGIF(parsedData.conditions));
+            catchErrors(getGIF(parsedData.icon));
             PubSub.publish("gotWeather", parsedData);
         } else {
             console.log("something went wrong");
@@ -78,7 +80,6 @@ const weatherApp = (function() {
         const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${GIPHY_KEY}&s=${searchTerm}&weirdness=1`);
         if (response.ok) {
             const r = await response.json();
-            console.log(r.data.images.original.url);
             PubSub.publish("gotGIF", r.data.images.original.url);
         } else {
             throw new Error("something went wrong");
