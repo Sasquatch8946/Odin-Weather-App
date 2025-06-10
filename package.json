@@ -11,7 +11,8 @@
     "ghpages-push": "git subtree push --prefix dist origin gh-pages",
     "ghpages-push-force": "git push origin `git subtree split --prefix dist main`:gh-pages --force",
     "ghpages-finish": "git checkout main",
-    "ghpages": "npm run build && npm run ghpages-create && npm run ghpages-commit && npm run ghpages-push-force && npm run ghpages-finish"
+    "ghpages": "npm run build && npm run ghpages-create && npm run ghpages-commit && npm run ghpages-push-force && npm run ghpages-finish",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,8 @@
     "globals": "^16.2.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
     "prettier": "3.5.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.99.8",
@@ -35,5 +38,9 @@
   "dependencies": {
     "pubsub-js": "^1.9.5",
     "save-dev": "^0.0.1-security"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
