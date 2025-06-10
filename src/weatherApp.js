@@ -7,6 +7,12 @@ const weatherApp = (function() {
         value: 'fahrenheit',
     }
 
+    const weatherSearchTerms = {
+        clear: 'sunny',
+        overcast: 'overcast',
+        cloudy: 'cloudy',
+    }
+
     const catchErrors = function(fn) {
         return fn.catch((error) => {
             console.log(error);
@@ -60,9 +66,9 @@ const weatherApp = (function() {
         const response = await fetch(url, {mode: 'cors'});
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
-            console.log(parseData(data));
-            PubSub.publish("gotWeather", parseData(data));
+            const parsedData = parseData(data);
+            catchErrors(getGIF(parsedData.conditions));
+            PubSub.publish("gotWeather", parsedData);
         } else {
             console.log("something went wrong");
         }
@@ -80,7 +86,6 @@ const weatherApp = (function() {
 
     }
 
-    catchErrors(getGIF('sunny'));
 
     PubSub.subscribe("searchStarted", getWeather);
     PubSub.subscribe("changeTempSystem", convertTemp);

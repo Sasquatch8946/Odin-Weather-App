@@ -12,7 +12,7 @@ const displayController = (function () {
     }
 
     const activateSubmit = function () {
-        document.querySelector("button[type='submit']").addEventListener("click", startSearch);
+        document.querySelector('form').addEventListener('submit', startSearch);
         document.querySelector("input[type='text']").addEventListener("keydown", startSearch);
     }
 

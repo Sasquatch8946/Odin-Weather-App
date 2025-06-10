@@ -10,6 +10,16 @@ form {
     row-gap: 5px;
 }
 
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+input#location {
+  width: 100%;
+}
+
 .weather-data {
     display: grid;
     width: 300px;
@@ -19,11 +29,17 @@ form {
 
 .weather-data img { 
     width: 100%;
+    height: 300px;
 }
 
 .weather-data .title {
     font-size: 2rem;
     justify-self: center;
+}
+
+.weather-details {
+  display: grid;
+  row-gap: 5px;
 }
 
 .temp-toggle {
