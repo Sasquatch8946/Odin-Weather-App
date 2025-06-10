@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "ghpages-create": "git checkout -B gh-pages && git merge main --no-edit",
     "ghpages-commit": "git add dist -f && git commit -m 'Deployment commit'",
-    "ghpages-push": "git push origin `git subtree split --prefix dist main`:gh-pages",
+    "ghpages-push": "git subtree push --prefix dist origin gh-pages",
+    "ghpages-push-force": "git push origin `git subtree split --prefix dist main`:gh-pages --force",
     "ghpages-finish": "git checkout main",
     "ghpages": "npm run build && npm run ghpages-create && npm run ghpages-commit && npm run ghpages-push && npm run ghpages-finish"
   },
