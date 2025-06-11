@@ -1,0 +1,5 @@
+Review this:
+
+https://stackoverflow.com/questions/37684532/trying-to-push-webpack-to-gh-pages
+
+Can't have a source map with the way I'm currently deploying to gh pages.

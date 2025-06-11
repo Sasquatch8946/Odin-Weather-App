@@ -16,6 +16,8 @@ const displayController = (function () {
     console.log(document.querySelector("form"));
     const form = document.querySelector("form");
     form.addEventListener("submit", startSearch);
+    console.log("searchBar");
+    console.log(document.querySelector("input[type='text']"));
     const searchBar = document.querySelector("input[type='text']");
     searchBar.addEventListener("keydown", startSearch);
   };
